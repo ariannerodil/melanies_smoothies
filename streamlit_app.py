@@ -9,8 +9,8 @@ st.write(
 )
 
 
-name_an_order = st.text_input("Name of Smoothie:")
-st.write("The name on your smoothie will be: ", name_an_order)
+name_on_order = st.text_input("Name of Smoothie:")
+st.write("The name on your smoothie will be: ", name_on_order)
 
 
 
@@ -46,7 +46,7 @@ if ingredients_list:
     #st.write(ingredients_string)
 
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_an_order)
-            values ('""" + ingredients_string + """','"""+ name_an_order+"""')"""
+            values ('""" + ingredients_string + """','"""+ name_on_order+"""')"""
 
     #st.write(my_insert_stmt)
     
@@ -54,5 +54,5 @@ if ingredients_list:
     time_to_insert= st.button('Submit Order')
     if time_to_insert:
         session.sql(my_insert_stmt).collect()
-        st.success('Your Smoothie is ordered!'+ name_an_order, icon="✅")
+        st.success('Your Smoothie is ordered!'+ name_on_order, icon="✅")
 
